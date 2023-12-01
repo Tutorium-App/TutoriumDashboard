@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 
 const Dashboard = () => {
-  const [currentView, setCurrentView] = useState('manageTutors');
+  const [currentView, setCurrentView] = useState('home');
   const handleSidebarItemClick = (view) => {
     setCurrentView(view);
   };
