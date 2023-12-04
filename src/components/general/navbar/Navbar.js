@@ -17,6 +17,18 @@ const Naavbar = () => {
       setCurrentView("home");
     } else if (window.location.pathname === "/manageTutors") {
       setCurrentView("manageTutors");
+    } else if (window.location.pathname === "/manageStudents") {
+      setCurrentView("manageStudents");
+    } else if (window.location.pathname === "/managePosts") {
+      setCurrentView("managePosts");
+    } else if (window.location.pathname === "/manageServices") {
+      setCurrentView("manageServices");
+    } else if (window.location.pathname === "/manageVideos") {
+      setCurrentView("manageVideos");
+    } else if (window.location.pathname === "/notifications") {
+      setCurrentView("notifications");
+    } else if (window.location.pathname === "/adminSettings") {
+      setCurrentView("adminSettings");
     }
   }, []);
 
@@ -91,69 +103,97 @@ const Naavbar = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="#db"
-                className="flex items-center justify-center p-2 text-white no-underline border rounded-lg dark:text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+              <Link
+                to="/manageStudents"
+                className={`flex items-center justify-center p-2 border no-underline rounded-lg dark:text-white ${
+                  currentView === "manageStudents"
+                    ? "text-blue-700 border bg-white"
+                    : "text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                }`}
               >
                 <span className="flex ms-3 whitespace-nowrap">
                   MANAGE STUDENTS
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#db"
-                className="flex items-center justify-center p-2 text-white no-underline border rounded-lg dark:text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+              <Link
+                to="/manageServices"
+                className={`flex items-center justify-center p-2 border no-underline rounded-lg dark:text-white ${
+                  currentView === "manageServices"
+                    ? "text-blue-700 border bg-white"
+                    : "text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                }`}
               >
                 <span className="flex ms-3 whitespace-nowrap">
                   MANAGE SERVICES
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#db"
-                className="flex items-center justify-center p-2 text-white no-underline border rounded-lg dark:text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+              <Link
+                to="/manageVideos"
+                className={`flex items-center justify-center p-2 border no-underline rounded-lg dark:text-white ${
+                  currentView === "manageVideos"
+                    ? "text-blue-700 border bg-white"
+                    : "text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                }`}
               >
                 <span className="flex ms-3 whitespace-nowrap">
                   MANAGE VIDEOS
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#db"
-                className="flex items-center justify-center p-2 text-white no-underline border rounded-lg dark:text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+              <Link
+                to="/notifications"
+                className={`flex items-center justify-center p-2 border no-underline rounded-lg dark:text-white ${
+                  currentView === "notifications"
+                    ? "text-blue-700 border bg-white"
+                    : "text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                }`}
               >
                 <span className="flex ms-3 whitespace-nowrap">
                   NOTIFICATIONS
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#db"
-                className="flex items-center justify-center p-2 text-white no-underline border rounded-lg dark:text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+              <Link
+                to="/managePosts"
+                className={`flex items-center justify-center p-2 border no-underline rounded-lg dark:text-white ${
+                  currentView === "managePosts"
+                    ? "text-blue-700 border bg-white"
+                    : "text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                }`}
               >
                 <span className="flex ms-3 whitespace-nowrap">
                   MANAGE POSTS
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#db"
-                className="flex items-center justify-center p-2 text-white no-underline border rounded-lg dark:text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+              <Link
+                to="/adminSettings"
+                className={`flex items-center justify-center p-2 border no-underline rounded-lg dark:text-white ${
+                  currentView === "adminSettings"
+                    ? "text-blue-700 border bg-white"
+                    : "text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                }`}
               >
                 <span className="flex ms-3 whitespace-nowrap">
                   ADMIN SETTINGS
                 </span>
-              </a>
+              </Link>
             </li>
             <li>
               <Link
                 to="/logout"
-                className="flex items-center justify-center p-2 text-white no-underline border rounded-lg dark:text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                className={`flex items-center justify-center p-2 border no-underline rounded-lg dark:text-white ${
+                  currentView === "logout"
+                    ? "text-blue-700 border bg-white"
+                    : "text-white hover:bg-blue-700 dark:hover:bg-gray-700 group"
+                }`}
               >
                 <span className="flex ms-3 whitespace-nowrap">LOGOUT</span>
               </Link>
