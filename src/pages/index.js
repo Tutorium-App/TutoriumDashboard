@@ -1,3 +1,9 @@
 export { default as Login } from './Login/Login';
 export { default as Home } from './Home/Home';
 export { default as ManageTutors } from './ManageTutors/ManageTutors';
+export { default as ManageStudents } from './ManageStudents/ManageStudents';
+export { default as ManagePosts } from './ManagePosts/ManagePosts';
+export { default as ManageServices } from './ManageServices/ManageServices';
+export { default as ManageVideos } from './ManageVideos/ManageVideos';
+export { default as Notifications } from './Notifications/Notifications';
+export { default as AdminSettings } from './AdminSettings/AdminSettings';
