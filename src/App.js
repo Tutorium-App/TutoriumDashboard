@@ -15,8 +15,10 @@ import {
   ManagePosts,
   Notifications,
   AdminSettings,
+  MTDetail,
+  MSDetail,
 } from "./pages/index";
-import MTDetail from "./pages/ManageTutors/MTDetail";
+// import MTDetail from "./pages/ManageTutors/MTDetail";
 
 // router and routes
 const router = createBrowserRouter(
@@ -26,8 +28,9 @@ const router = createBrowserRouter(
       <Route path="/logout" element={<Login />} />
       <Route path="/home" element={<Home />} />
       <Route path="/manageTutors" element={<ManageTutors />} />
-      <Route path="/manageTutors/:id" element={<MTDetail />} />
+      <Route path="/manageTUTORS/:id" element={<MTDetail />} />
       <Route path="/manageStudents" element={<ManageStudents />} />
+      <Route path="/manageSTUDENTS/:id" element={<MSDetail />} />
       <Route path="/manageServices" element={<ManageServices />} />
       <Route path="/manageVideos" element={<ManageVideos />} />
       <Route path="/managePosts" element={<ManagePosts />} />

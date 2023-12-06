@@ -1,13 +1,11 @@
 import React from "react";
-import { Navbar } from "../../components";
+import { TutorStudents } from "../../components";
+import StudentsData from "./StudentsDB";
 
 const ManageStudents = () => {
   return (
     <>
-      <Navbar />
-      <main className="px-6 md:ml-72 md:px-0">
-        <h1>Manage Students</h1>
-      </main>
+      <TutorStudents data={StudentsData} title="STUDENTS" />
     </>
   );
 };
