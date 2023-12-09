@@ -1,13 +1,11 @@
 import React from 'react'
-import { Navbar } from '../../components'
+import { ServicesVideos } from '../../components'
+import ServicesData from './ServicesDB'
 
 const ManageServices = () => {
   return (
     <>
-        <Navbar />
-        <main className='px-6 md:ml-72 md:px-0'>
-          <h1>Manage Services</h1>
-        </main>
+      <ServicesVideos title="SERVICES" data={ServicesData} />
     </>
   )
 }
