@@ -11,6 +11,9 @@ module.exports = {
       margin: {
         '37': '8.75rem', // You can adjust the value according to your needs
       },
+      screens: {
+        'fg': '639px', // set the minimum width for lg breakpoint
+      },
     },
   },
  
