@@ -1,15 +1,13 @@
 import React from "react";
-import { Navbar } from "../../components";
+import { ServicesVideos } from "../../components";
+import VideosDB from "./VideosDB";
 
 const ManageVideos = () => {
   return (
     <>
-      <Navbar />
-      <main className="px-6 md:ml-72 md:px-0">
-        <h1>Manage Videos</h1>
-      </main>
+      <ServicesVideos title="VIDEOS" data={VideosDB} />
     </>
-  );
+  )
 };
 
 export default ManageVideos;
