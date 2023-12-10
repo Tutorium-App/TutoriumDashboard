@@ -1,13 +1,3 @@
-import blueAcademics from '../../assets/images/blue_academics.jpeg';
-import pinkAcademics from '../../assets/images/pink_academics.jpeg';
-import greenAcademics from '../../assets/images/green_academics.jpeg';
-import blueOthers from '../../assets/images/blue_others.jpeg';
-import blueSkills from '../../assets/images/blue_skills.jpeg';
-import greenOthers from '../../assets/images/green_others.jpeg';
-import greenSkills from '../../assets/images/green_skills.jpeg';
-import pinkOthers from '../../assets/images/pink_others.jpeg';
-import pinkSkills from '../../assets/images/pink_skills.jpeg';
-
 const VideosDB = [
   {
     id: 0,
@@ -17,7 +7,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      blueOthers,
+      "blueAcademics",
   },
   {
     id: 1,
@@ -27,7 +17,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      pinkSkills,
+      "pinkAcademics",
   },
   {
     id: 2,
@@ -37,7 +27,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      greenAcademics,
+      "greenAcademics",
   },
   {
     id: 3,
@@ -47,7 +37,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      pinkAcademics,
+      "pinkOthers",
   },
   {
     id: 4,
@@ -57,7 +47,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      greenAcademics,
+      "greenOthers",
   },
   {
     id: 5,
@@ -67,7 +57,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      blueOthers,
+      "blueOthers",
   },
   {
     id: 6,
@@ -77,7 +67,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      greenOthers,
+      "greenSkills",
   },
   {
     id: 7,
@@ -87,7 +77,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      blueSkills,
+      "blueSkills",
   },
   {
     id: 8,
@@ -97,7 +87,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      pinkSkills,
+      "pinkSkills",
   },
   {
     id: 9,
@@ -107,7 +97,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      blueSkills,
+      "blueSkills",
   },
   {
     id: 10,
@@ -117,7 +107,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      greenSkills,
+      "greenAcademics",
   },
   {
     id: 11,
@@ -127,7 +117,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      pinkOthers,
+      "pinkAcademics",
   },
   {
     id: 12,
@@ -137,7 +127,7 @@ const VideosDB = [
     category: "Skills",
     rating: 4,
     imageUrl:
-      blueAcademics,
+      "blueAcademics",
   },
   ];
 

@@ -5,6 +5,7 @@ import { IconButton } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Navbar } from "../../../components";
 import { Link } from "react-router-dom";
+import { Gallary } from "../../../assets/Gallary";
 
 const ServicesVideos = ({ title, data }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -138,11 +139,15 @@ const ServicesVideos = ({ title, data }) => {
                 to={`/manage${title}/${card.id}`}
                 className="flex flex-col pb-3 font-semibold no-underline"
               >
-                <img
-                  className="w-full mb-3 h-60"
-                  src={card.imageUrl}
-                  alt={`${card.name}`}
-                />
+                {Gallary.map((image, index) =>
+                  image.name === card.imageUrl ? (
+                    <img
+                      className="w-full mb-3 h-60"
+                      src={card.imageUrl === image.name ? image.link : null}
+                      alt={image.name}
+                    />
+                  ) : null
+                )}
                 <div className="flex flex-col px-4 space-y-2">
                   <span className="text-gray-500 dark:text-gray-400">
                     Title - {card.title}

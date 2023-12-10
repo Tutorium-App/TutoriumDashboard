@@ -1,13 +1,3 @@
-import blueAcademics from '../../assets/images/blue_academics.jpeg';
-import pinkAcademics from '../../assets/images/pink_academics.jpeg';
-import greenAcademics from '../../assets/images/green_academics.jpeg';
-import blueOthers from '../../assets/images/blue_others.jpeg';
-import blueSkills from '../../assets/images/blue_skills.jpeg';
-import greenOthers from '../../assets/images/green_others.jpeg';
-import greenSkills from '../../assets/images/green_skills.jpeg';
-import pinkOthers from '../../assets/images/pink_others.jpeg';
-import pinkSkills from '../../assets/images/pink_skills.jpeg';
-
 const ServicesData = [
   {
     id: 0,
@@ -16,8 +6,7 @@ const ServicesData = [
     author: "Mubarak Green",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      blueAcademics,
+    imageUrl: "blueAcademics",
   },
   {
     id: 1,
@@ -26,8 +15,7 @@ const ServicesData = [
     author: "Lawson Green",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      pinkAcademics,
+    imageUrl: "pinkAcademics",
   },
   {
     id: 2,
@@ -36,8 +24,7 @@ const ServicesData = [
     author: "Foster Green",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      greenAcademics,
+    imageUrl: "greenAcademics",
   },
   {
     id: 3,
@@ -46,8 +33,7 @@ const ServicesData = [
     author: "Ben Green",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      pinkOthers,
+    imageUrl: "pinkOthers",
   },
   {
     id: 4,
@@ -56,8 +42,7 @@ const ServicesData = [
     author: "Benny Green",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      greenOthers,
+    imageUrl: "greenOthers",
   },
   {
     id: 5,
@@ -66,8 +51,7 @@ const ServicesData = [
     author: "Sam Green",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      blueOthers,
+    imageUrl: "blueOthers",
   },
   {
     id: 6,
@@ -76,8 +60,7 @@ const ServicesData = [
     author: "Mubarak Blue",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      greenSkills,
+    imageUrl: "greenSkills",
   },
   {
     id: 7,
@@ -86,8 +69,7 @@ const ServicesData = [
     author: "Lawson Blue",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      blueSkills,
+    imageUrl: "blueSkills",
   },
   {
     id: 8,
@@ -96,8 +78,7 @@ const ServicesData = [
     author: "Red Foster",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      pinkSkills,
+    imageUrl: "pinkSkills",
   },
   {
     id: 9,
@@ -106,8 +87,7 @@ const ServicesData = [
     author: "Yellow Sammy",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      blueSkills,
+    imageUrl: "blueSkills",
   },
   {
     id: 10,
@@ -116,8 +96,7 @@ const ServicesData = [
     author: "Yellow Ben",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      greenAcademics,
+    imageUrl: "greenAcademics",
   },
   {
     id: 11,
@@ -126,8 +105,7 @@ const ServicesData = [
     author: "Benny Blue",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      pinkAcademics,
+    imageUrl: "pinkAcademics",
   },
   {
     id: 12,
@@ -136,9 +114,8 @@ const ServicesData = [
     author: "Lonnie Green",
     category: "Skills",
     rating: 4,
-    imageUrl:
-      blueAcademics,
+    imageUrl: "blueAcademics",
   },
-  ];
+];
 
-export default ServicesData
+export default ServicesData;

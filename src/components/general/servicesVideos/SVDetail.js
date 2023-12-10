@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Navbar } from "../../../components";
+import { Gallary } from "../../../assets/Gallary";
 
 const SVDetail = ({Data}) => {
 
@@ -33,11 +34,15 @@ const SVDetail = ({Data}) => {
               </button>
             </div>
             <div className="flex flex-row items-center space-x-4">
-              <img
-                src={DB.imageUrl}
-                alt={DB.author}
-                className="md:h-64 md:w-64"
-              />
+              {Gallary.map((image, index) => (
+                image.name === DB.imageUrl ? (
+                  <img
+                    src={image.link}
+                    alt={image.name}
+                    className="md:h-64 md:w-64"
+                  />
+                ) : null
+              ))}
             </div>
             <div className="w-full h-full p-2 pb-10 rounded shadow-2xl">
               <div className="flex justify-center w-full">
