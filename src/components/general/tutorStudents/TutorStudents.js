@@ -6,40 +6,44 @@ import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Navbar } from "../../../components";
 import { Link } from "react-router-dom";
 
-const TutorStudents = ({title, data}) => {
+const TutorStudents = ({ title, data }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activePage, setActivePage] = useState(1); // Change from currentPage to activePage
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-    const [searchQuery, setSearchQuery] = useState("");
-    const [activePage, setActivePage] = useState(1); // Change from currentPage to activePage
-  
-    // Filter cards based on the search query
-    const filteredCards = data.filter((card) =>
-      card.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  
-    // PAGINATION
-    const numCardsPerPage = 6;
-    const indexOfLastCard = activePage * numCardsPerPage;
-    const indexOfFirstCard = indexOfLastCard - numCardsPerPage;
-    const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
-  
-    const totalPages = Math.ceil(filteredCards.length / numCardsPerPage);
-  
-    const prevPage = () => {
-      if (activePage > 1) {
-        setActivePage((prevPage) => prevPage - 1);
-      }
-    };
-  
-    const nextPage = () => {
-      if (activePage < totalPages) {
-        setActivePage((prevPage) => prevPage + 1);
-      }
-    };
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  // Filter cards based on the search query
+  const filteredCards = data.filter((card) =>
+    card.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // PAGINATION
+  const numCardsPerPage = 6;
+  const indexOfLastCard = activePage * numCardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - numCardsPerPage;
+  const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
+
+  const totalPages = Math.ceil(filteredCards.length / numCardsPerPage);
+
+  const prevPage = () => {
+    if (activePage > 1) {
+      setActivePage((prevPage) => prevPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (activePage < totalPages) {
+      setActivePage((prevPage) => prevPage + 1);
+    }
+  };
 
   return (
     <section className="px-4">
       <Navbar />
-      <section className="flex items-center mb-4 lg:ml-80 lg:mt-8">
+      <section className="flex items-center justify-between mb-4 lg:ml-80 lg:mt-8">
         <div className="lg:w-[40em] mr-4">
           <div className="relative w-full min-w-[200px] h-14">
             <input
@@ -53,26 +57,107 @@ const TutorStudents = ({title, data}) => {
           </div>
         </div>
 
-        <Button
-          variant="text"
-          className="bg-blue-500 lg:sm-8 p-3 w-[18em] text-white border flex items-center gap-2"
-        >
-          Verify New {title}{" "}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-5 h-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-            />
-          </svg>
-        </Button>
+        {title === "STUDENTS" ? (
+          <>
+            <div className="relative">
+              <button
+                id="dropdownNavbarLink"
+                className={`flex items-center justify-between w-full py-2 px-3 text-white rounded hover:bg-black md:hover:bg-blue-800 md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent border bg-blue-600`}
+                onClick={toggleDropdown}
+              >
+                Schools{" "}
+                <svg
+                  className="w-2.5 h-2.5 ms-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+
+              {isDropdownOpen && (
+                <div
+                  id="dropdownNavbar"
+                  className="absolute right-0 z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow top-full w-44 dark:bg-gray-700 dark:divide-gray-600"
+                >
+                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
+                    <li>
+                      <Link
+                        to="/"
+                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        UMaT
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/"
+                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        UMaT, SRID
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/"
+                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        UG, Legon
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/"
+                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        UCC
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/"
+                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        KNUST
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <Button
+              variant="text"
+              className="bg-blue-500 lg:sm-8 p-3 w-[18em] text-white border flex items-center gap-2"
+            >
+              Verify New {title}{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </Button>
+          </>
+        )}
       </section>
 
       {/* CARDS */}
@@ -90,7 +175,12 @@ const TutorStudents = ({title, data}) => {
                 alt={`${card.name}`}
               />
               <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                <Link to={`/manage${title}/${card.id}`} className="text-black no-underline">{card.name}</Link>
+                <Link
+                  to={`/manage${title}/${card.id}`}
+                  className="text-black no-underline"
+                >
+                  {card.name}
+                </Link>
               </h5>
               <span className="text-sm text-gray-500 dark:text-gray-400">
                 {card.role}
@@ -149,7 +239,7 @@ const TutorStudents = ({title, data}) => {
         </Button>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TutorStudents
+export default TutorStudents;
