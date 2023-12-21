@@ -2,7 +2,7 @@ const StudentsData = [
     {
       id: 0,
       tag: "Student",
-      name: "Mubarak Green",
+      fullName: "Mubarak Green",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -11,7 +11,7 @@ const StudentsData = [
     {
       id: 1,
       tag: "Student",
-      name: "Lawson Green",
+      fullName: "Lawson Green",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -20,7 +20,7 @@ const StudentsData = [
     {
       id: 2,
       tag: "Student",
-      name: "Foster Green",
+      fullName: "Foster Green",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -29,7 +29,7 @@ const StudentsData = [
     {
       id: 3,
       tag: "Student",
-      name: "Ben Green",
+      fullName: "Ben Green",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -38,7 +38,7 @@ const StudentsData = [
     {
       id: 4,
       tag: "Student",
-      name: "Benny Green",
+      fullName: "Benny Green",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -47,7 +47,7 @@ const StudentsData = [
     {
       id: 5,
       tag: "Student",
-      name: "Sam Green",
+      fullName: "Sam Green",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -56,7 +56,7 @@ const StudentsData = [
     {
       id: 6,
       tag: "Student",
-      name: "Mubarak Blue",
+      fullName: "Mubarak Blue",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -65,7 +65,7 @@ const StudentsData = [
     {
       id: 7,
       tag: "Student",
-      name: "Lawson Blue",
+      fullName: "Lawson Blue",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -74,7 +74,7 @@ const StudentsData = [
     {
       id: 8,
       tag: "Student",
-      name: "Red Foster",
+      fullName: "Red Foster",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -83,7 +83,7 @@ const StudentsData = [
     {
       id: 9,
       tag: "Student",
-      name: "Yellow Sammy",
+      fullName: "Yellow Sammy",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -92,7 +92,7 @@ const StudentsData = [
     {
       id: 10,
       tag: "Student",
-      name: "Yellow Ben",
+      fullName: "Yellow Ben",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -101,7 +101,7 @@ const StudentsData = [
     {
       id: 11,
       tag: "Student",
-      name: "Benny Blue",
+      fullName: "Benny Blue",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:
@@ -110,7 +110,7 @@ const StudentsData = [
     {
       id: 12,
       tag: "Student",
-      name: "Lonnie Green",
+      fullName: "Lonnie Green",
       role: "Web Developer",
       school: "KNUST",
       imageUrl:

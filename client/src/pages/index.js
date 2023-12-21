@@ -12,3 +12,4 @@ export { default as ManageVideos } from './ManageVideos/ManageVideos';
 export { default as VideosDetai } from './ManageVideos/VideosDetail';
 export { default as Notifications } from './Notifications/Notifications';
 export { default as AdminSettings } from './AdminSettings/AdminSettings';
+export { default as Demo } from './Demo'

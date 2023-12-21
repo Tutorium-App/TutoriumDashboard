@@ -5,6 +5,7 @@ import { IconButton } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Navbar } from "../../../components";
 import { Link } from "react-router-dom";
+import { Gallary } from "../../../assets/Gallary";
 
 const TutorStudents = ({ title, data }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,7 +18,7 @@ const TutorStudents = ({ title, data }) => {
 
   // Filter cards based on the search query
   const filteredCards = data.filter((card) =>
-    card.name.toLowerCase().includes(searchQuery.toLowerCase())
+    card.fullName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   // PAGINATION
@@ -162,24 +163,29 @@ const TutorStudents = ({ title, data }) => {
 
       {/* CARDS */}
       <div className="grid items-center grid-cols-1 gap-2 lg:ml-80 lg:mt-8 sm:mx-4 sm:grid-cols-2 lg:grid-cols-3">
-        {currentCards.map((card, index) => (
+        {currentCards.map((card) => (
           <div
-            key={index}
+            key={card._id}
             className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             {/* ... (card JSX structure) */}
             <div className="flex flex-col items-center pt-4 pb-10">
-              <img
-                className="w-20 h-20 mb-3 rounded-full shadow-lg"
-                src={card.imageUrl}
-                alt={`${card.name}`}
-              />
+              {Gallary.map((image) =>
+                  image.name === card.profilePhotoLink ? (
+                    <img
+                    className="w-20 h-20 mb-3 rounded-full shadow-lg"
+                      src={card.profilePhotoLink === image.name ? image.link : null}
+                      alt={image.name}
+                      key={card._id}
+                    />
+                  ) : null
+                )}
               <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
                 <Link
-                  to={`/manage${title}/${card.id}`}
+                  to={`/manage${title}/${card._id}`}
                   className="text-black no-underline"
                 >
-                  {card.name}
+                  {card.fullName}
                 </Link>
               </h5>
               <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -192,16 +198,16 @@ const TutorStudents = ({ title, data }) => {
               <div className="flex mt-4 md:mt-6">
                 <a
                   href="#mt"
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 no-underline bg-white border rounded-lg hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Suspend
                 </a>
-                <a
-                  href="#mt"
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-700 border-gray-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3"
+                <Link
+                  to={`/manage${title}/${card._id}`}
+                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white no-underline bg-red-700 border-gray-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3"
                 >
-                  Delete
-                </a>
+                  Detail
+                </Link>
               </div>
             </div>
           </div>

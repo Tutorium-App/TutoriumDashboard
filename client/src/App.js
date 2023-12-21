@@ -14,6 +14,7 @@ import {
   MSDetail,
   ServicesDetail,
   VideosDetai,
+  Demo
 } from "./pages/index";
 import { useAuthContext } from './hooks/useAuthContext';
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/managePosts" element={user ? <ManagePosts /> : <Navigate to={'/'} />} />
         <Route path="/notifications" element={user ? <Notifications /> : <Navigate to={'/'} />} />
         <Route path="/adminSettings" element={user ? <AdminSettings /> : <Navigate to={'/'} />} />
+        <Route path="/demo" element={<Demo />} />
        </Routes>
     </Router>
   );
