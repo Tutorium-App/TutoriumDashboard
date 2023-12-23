@@ -31,7 +31,7 @@ const ManagePosts = () => {
       <Button className="fg:ml-60 bg-green-600" color="success">Send</Button>
     </div>
       </div>
-      <div className="  text-red-600 fg:ml-56 mt-4  text-2xl  font-bold ">
+      <div className="  text-red-600 fg:ml-56 mt-4  text-2xl  font-bold ml-2">
         Existing post
       </div>
       <div className="flex flex-wrap lg:justify-between justify-center fg:ml-52 mt-4 ">
