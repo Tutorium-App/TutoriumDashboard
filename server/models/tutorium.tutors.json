@@ -1,0 +1,228 @@
+[{
+  "_id": {
+    "$oid": "657c1c329934e6af542ad29b"
+  },
+  "tutorID": "BA",
+  "fullName": "Bankah Junior",
+  "email": "bankah@gmail.com",
+  "phone": "0594618786",
+  "school": "UMaT",
+  "program": "Computer Science Engineering",
+  "year": "2022",
+  "about": "Software Engineer",
+  "balance": 2000,
+  "rating": 5,
+  "verified": "true",
+  "profilePhotoLink": "bannerImage",
+  "createdAt": {
+    "$date": "2023-12-15T09:28:18.774Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-15T09:35:04.754Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657c204c21dee18f36249da5"
+  },
+  "tutorID": "BA",
+  "fullName": "Bankah Anthony",
+  "email": "bankahjunior@gmail.com",
+  "phone": "0594618786",
+  "school": "UMaT",
+  "program": "Computer Science Engineering",
+  "year": "2022",
+  "about": "Software Engineer",
+  "balance": 2000,
+  "rating": 5,
+  "verified": "true",
+  "profilePhotoLink": "tutoriumLogo",
+  "createdAt": {
+    "$date": "2023-12-15T09:45:48.076Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-15T09:45:48.076Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657c220fb93b64359ccc8667"
+  },
+  "tutorID": "BA",
+  "fullName": "Bankah Anthony",
+  "email": "bankahjunior10@gmail.com",
+  "phone": "0594618789",
+  "school": "UMaT",
+  "program": "Computer Science Engineering",
+  "year": "2022",
+  "about": "Software Engineer",
+  "balance": 2000,
+  "rating": 5,
+  "verified": "true",
+  "profilePhotoLink": "blueAcademics",
+  "createdAt": {
+    "$date": "2023-12-15T09:53:19.197Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-15T09:53:19.197Z"
+  },
+  "__v": 0
+},
+{
+  "tutorID": "BA",
+  "fullName": "Bankah Junior",
+  "email": "bankah@gmail.com",
+  "phone": "0594618799",
+  "school": "UMaT",
+  "program": "Computer Science Engineering",
+  "year": "2022",
+  "about": "Software Engineer",
+  "balance": 1500,
+  "rating": 4,
+  "verified": "false",
+  "profilePhotoLink": "blueOthers"
+},
+{
+  "tutorID": "BX",
+  "fullName": "Victoria Smith",
+  "email": "v.smith@example.com",
+  "phone": "0712345678",
+  "school": "Harvard University",
+  "program": "Data Science",
+  "year": "2023",
+  "about": "Data Analyst",
+  "balance": 2500,
+  "rating": 5,
+  "verified": "true",
+  "profilePhotoLink": "blueSkills"
+},
+{
+  "tutorID": "CN",
+  "fullName": "John Doe",
+  "email": "johndoe@example.com",
+  "phone": "0800123456",
+  "school": "MIT",
+  "program": "Electrical Engineering",
+  "year": "2024",
+  "about": "Hardware Engineer",
+  "balance": 1800,
+  "rating": 3,
+  "verified": "true",
+  "profilePhotoLink": "pinkAcademics"
+},
+{
+  "tutorID": "JD",
+  "fullName": "Jane Smith",
+  "email": "jane_smith@example.com",
+  "phone": "07700998877",
+  "school": "Stanford University",
+  "program": "Mechanical Engineering",
+  "year": "2022",
+  "about": "Robotics Specialist",
+  "balance": 2200,
+  "rating": 4,
+  "verified": "true",
+  "profilePhotoLink": "pinkOthers"
+},
+{
+  "tutorID": "RP",
+  "fullName": "Rachel Green",
+  "email": "r.green@example.com",
+  "phone": "0908765432",
+  "school": "Oxford University",
+  "program": "Psychology",
+  "year": "2023",
+  "about": "Clinical Psychologist",
+  "balance": 1900,
+  "rating": 5,
+  "verified": "true",
+  "profilePhotoLink": "pinkSkills"
+},
+{
+  "tutorID": "AB",
+  "fullName": "Jane Smith",
+  "email": "jane.smith@example.com",
+  "phone": "0712345678",
+  "school": "Stanford University",
+  "program": "Mechanical Engineering",
+  "year": "2023",
+  "about": "Robotics Enthusiast",
+  "balance": 2200,
+  "rating": 4,
+  "verified": "true",
+  "profilePhotoLink": "greenAcademics"
+},
+{
+  "tutorID": "CD",
+  "fullName": "Alex Johnson",
+  "email": "alex.j@example.com",
+  "phone": "0887654321",
+  "school": "Oxford University",
+  "program": "Mathematics",
+  "year": "2022",
+  "about": "Quantum Physics Researcher",
+  "balance": 1900,
+  "rating": 5,
+  "verified": "true",
+  "profilePhotoLink": "greenOthers"
+},
+{
+  "tutorID": "EF",
+  "fullName": "Emily Brown",
+  "email": "emily.b@example.com",
+  "phone": "0912345678",
+  "school": "Cambridge University",
+  "program": "Linguistics",
+  "year": "2024",
+  "about": "Language and Culture Analyst",
+  "balance": 2100,
+  "rating": 4,
+  "verified": "false",
+  "profilePhotoLink": "greenSkillsg"
+},
+{
+  "tutorID": "GH",
+  "fullName": "Samuel Adams",
+  "email": "samuel.a@example.com",
+  "phone": "0777777777",
+  "school": "Princeton University",
+  "program": "Chemical Engineering",
+  "year": "2023",
+  "about": "Environmental Scientist",
+  "balance": 2300,
+  "rating": 4,
+  "verified": "true",
+  "profilePhotoLink": "greenOthers"
+},
+{
+  "tutorID": "IJ",
+  "fullName": "Sophie Johnson",
+  "email": "sophie.j@example.com",
+  "phone": "0666666666",
+  "school": "Yale University",
+  "program": "Business Administration",
+  "year": "2022",
+  "about": "Financial Analyst",
+  "balance": 2000,
+  "rating": 5,
+  "verified": "true",
+  "profilePhotoLink": "bannerImage"
+},
+{
+  "tutorID": "KL",
+  "fullName": "David Lee",
+  "email": "david.lee@example.com",
+  "phone": "0555555555",
+  "school": "Columbia University",
+  "program": "Psychology",
+  "year": "2024",
+  "about": "Behavioral Analyst",
+  "balance": 1800,
+  "rating": 4,
+  "verified": "false",
+  "profilePhotoLink": "greenAcademics"
+}
+
+]
