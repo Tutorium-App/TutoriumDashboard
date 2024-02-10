@@ -18,7 +18,11 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    lastLogin: {
+        type: String,
+        required: true
+    }, 
 }, {timestamps: true})
 
 // static signup method
@@ -43,7 +47,16 @@ userSchema.statics.signup = async function (username, email, password) {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const user = await this.create({ username, email, password: hash });
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    let currentDate = `${day}/${month}/${year}`;
+
+    // const date = new Date();
+    // let currentDate = date.toLocaleString(); 
+
+    const user = await this.create({ username, email, password: hash, lastLogin: currentDate });
 
     return user;
 
@@ -65,6 +78,21 @@ userSchema.statics.login = async function (email, password) {
     if (!match) {
         throw Error("Incorrect Password")
     }
+
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let currentDate = `${day}/${month}/${year}`;
+    const update = { lastLogin: currentDate }
+
+    // const date = new Date();
+    // let currentDate = date.toLocaleString();
+    // const update = { lastLogin: currentDate }
+
+    const doc = await this.findOneAndUpdate(user, update, {
+        returnOriginal: false
+    });
 
     return user;
 
