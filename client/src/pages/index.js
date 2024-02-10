@@ -1,5 +1,7 @@
 export { default as Login } from './Login/Login';
 export { default as Signup } from './Login/Signup';
+// export { default as AdminLogin } from './AdminLogin/AdminLogin';
+// export { default as AdminSignup } from './AdminLogin/AdminSignup';
 export { default as Home } from './Home/Home';
 export { default as ManageTutors } from './ManageTutors/ManageTutors';
 export { default as MTDetail } from './ManageTutors/MTDetail';

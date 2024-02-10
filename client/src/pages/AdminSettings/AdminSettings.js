@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Navbar } from "../../components";
-import AdminData from "./AdminData";
 import FlashMessage from "react-flash-message";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useAdminContext } from "../../hooks/useAdminContext";
+import { useLogout } from "../../hooks/useLogout";
 
 const AdminSettings = () => {
-  const [flash, setFlash] = useState(false);
-  const registrationLink = "https://www.dfe/admins/link/reg.com";
+  const [flash, setFlash] = useState(false);        // State for flash message of copied text
+  const [mainAdmin, setMainAdmin] = useState(true); // State for Super Admin
+  const { admins, dispatch } = useAdminContext();   // Context for admins
+  const { user } = useAuthContext();                // Authorization Context for user
+  const { logout } = useLogout();                   // Logout hook
+  
+  const registrationLink = "http://localhost:3000/register";   // Link for Admin registration
 
+  // Handles click for copying text onto clipboard
   const handleClick = () => {
     setFlash(true);
     navigator.clipboard.writeText(registrationLink);
   };
+
+  // Splitting the user item from the local storage to get the "username"
+  let splitString = localStorage.getItem("user");
+  let splitStringFirst = splitString.split(",")[0];
+  let splitStringFirstNameQuote = splitStringFirst.split(":")[1];
+  let splitedUsername = splitStringFirstNameQuote.split('"')[1];
 
   useEffect(() => {
     if (flash) {
@@ -18,7 +32,56 @@ const AdminSettings = () => {
         setFlash(false);
       }, 5000);
     }
-  });
+
+    if (splitedUsername === "Admin") {
+      setMainAdmin(true);
+    } else {
+      setMainAdmin(false);
+    }
+  }, [flash, splitedUsername]);
+
+  useEffect(() => {
+    const fetchAdmins = async () => {
+      const response = await fetch("/api/user/allUsers", {
+        headers: { Authorization: `Bearer ${user.token}` },
+      });
+      const json = await response.json();
+
+      if (response.ok) {
+        dispatch({ type: "SET_ADMINS", payload: json });
+      }
+    };
+
+    if (user) {
+      fetchAdmins();
+    }
+  }, [dispatch, user]);
+
+  const handleDelete = async (userID, userName) => {
+    if (!user) {
+      return;
+    }
+
+    const response = await fetch("/api/user/" + userID, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+
+    const json = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: "DELETE_ADMIN", payload: json._id });
+    } else {
+      console.error("Error deleting user:", response);
+      alert("Error deleting user. Please try again. " + userID);
+    }
+
+    if (userName === splitedUsername) {
+      logout();
+    }
+  };
 
   return (
     <>
@@ -47,7 +110,7 @@ const AdminSettings = () => {
             <h3 className="text-[#6cb5f0] mb-3">Registration page link</h3>
             <div className="flex items-center space-x-4">
               <div className="w-4/5 p-1 px-2 bg-[#ebebeb] rounded text-ellipsis overflow-clip">
-                https://www.dfe/admins/link/reg.com
+                {registrationLink}
               </div>
               <div>
                 <button
@@ -66,7 +129,6 @@ const AdminSettings = () => {
         <br />
         <br />
 
-        {/* Admins Section */}
         <section>
           <h3 className="text-[#f55252] ml-4 mb-4">Admins</h3>
           <div className="p-2 shadow-xl card">
@@ -79,13 +141,13 @@ const AdminSettings = () => {
               </thead>
               <div className="p-1"></div>
               <tbody className="bg-[#ebebeb]">
-                {AdminData.map((adminDB, key) => (
+                {admins.map((data, key) => (
                   <>
-                    {adminDB.id === 0 ? (
+                    {data.username === "Admin" ? (
                       <tr className="font-bold md:text-xl">
-                        <td className="py-3 md:pl-2">{adminDB.name}</td>
-                        <td className="py-3 md:pl-2">{adminDB.role}</td>
-                        <td className="py-3 md:pl-2">{adminDB.date}</td>
+                        <td className="py-3 md:pl-2">{data.username}</td>
+                        <td className="py-3 md:pl-2">{data.role}</td>
+                        <td className="py-3 md:pl-2">{data.lastLogin}</td>
                         <td className="py-3 md:pl-2">
                           {/* <button className="bg-[#f55252] my-1 rounded py-1 px-2 text-center inline text-white">Delete</button> */}
                         </td>
@@ -95,27 +157,60 @@ const AdminSettings = () => {
                     )}
                   </>
                 ))}
-                {AdminData.map((data, key) => (
-                  <>
-                    {data.id !== 0 ? (
+                {admins.map((data, key) => {
+                  if (mainAdmin) {
+                    return (
                       <tr
-                        className="font-bold text-gray-500 md:text-xl"
                         key={key}
+                        className="font-bold text-gray-500 md:text-xl"
                       >
-                        <td className="py-3 md:pl-2">{data.name}</td>
-                        <td className="py-3 md:pl-2">{data.role}</td>
-                        <td className="py-3 md:pl-2">{data.date}</td>
-                        <td className="py-3 md:pl-2">
-                          <button className="bg-[#f55252] my-1 rounded py-1 px-2 text-center inline text-white">
-                            Delete
-                          </button>
-                        </td>
+                        {data.username === "Admin" ? (
+                          <></>
+                        ) : (
+                          <>
+                            <td className="py-3 md:pl-2">{data.username}</td>
+                            <td className="py-3 md:pl-2">{data.role}</td>
+                            <td className="py-3 md:pl-2">{data.lastLogin}</td>
+                            <td className="py-3 md:pl-2">
+                              <button
+                                className="bg-[#f55252] my-1 rounded py-1 px-2 text-center inline text-white"
+                                onClick={() => handleDelete(data._id, data.username)}
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </>
+                        )}
                       </tr>
-                    ) : (
-                      <></>
-                    )}
-                  </>
-                ))}
+                    );
+                  } else {
+                    return (
+                      <tr
+                        key={key}
+                        className="font-bold text-gray-500 md:text-xl"
+                      >
+                        {data.username === "Admin" ? (
+                          <></>
+                        ) : (
+                          <>
+                            <td className="py-3 md:pl-2">{data.username}</td>
+                            <td className="py-3 md:pl-2">{data.role}</td>
+                            <td className="py-3 md:pl-2">{data.lastLogin}</td>
+                            <td className="py-3 md:pl-2">
+                              <button
+                                className="bg-[#f55252] my-1 rounded py-1 px-2 text-center inline text-white opacity-50 cursor-not-allowed"
+                                disabled="true"
+                                onClick={() => handleDelete(data._id)}
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </>
+                        )}
+                      </tr>
+                    );
+                  }
+                })}
               </tbody>
             </table>
           </div>

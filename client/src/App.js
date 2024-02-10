@@ -28,9 +28,9 @@ function App() {
         <Route path="/logout" element={<Login />} />
         <Route path="/home" element={user ? <Home /> : <Navigate to={'/'} />} />
         <Route path="/manageTutors" element={user ? <ManageTutors /> : <Navigate to={'/'} />} />
-        <Route path="/manageTUTORS/:id" element={user ? <MTDetail /> : <Navigate to={'/'} />} />
+        <Route path="/manageTutors/:id" element={user ? <MTDetail /> : <Navigate to={'/'} />} />
         <Route path="/manageStudents" element={user ? <ManageStudents /> : <Navigate to={'/'} />} />
-        <Route path="/manageSTUDENTS/:id" element={user ? <MSDetail /> : <Navigate to={'/'} />} />
+        <Route path="/manageStudents/:id" element={user ? <MSDetail /> : <Navigate to={'/'} />} />
         <Route path="/manageServices" element={user ? <ManageServices /> : <Navigate to={'/'} />} />
         <Route path="/manageSERVICES/:id" element={user ? <ServicesDetail /> : <Navigate to={'/'} />} />
         <Route path="/manageVideos" element={user ? <ManageVideos /> : <Navigate to={'/'} />} />

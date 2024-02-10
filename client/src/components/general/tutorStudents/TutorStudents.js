@@ -9,23 +9,61 @@ import { Gallary } from "../../../assets/Gallary";
 
 const TutorStudents = ({ title, data }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [dropDownItem, setDropDownItem] = useState("");       // state for the values of list items
+  const [toggleCategory, setToggleCategory] = useState(false); // state for managing fullName and school
   const [activePage, setActivePage] = useState(1); // Change from currentPage to activePage
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
+    setToggleCategory(!toggleCategory);
+    setDropDownItem("");
   };
 
-  // Filter cards based on the search query
+  // Filter cards based on the search query using fullName
   const filteredCards = data.filter((card) =>
     card.fullName.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Filter cards based on the search query using school
+  const filteredCardsSch = data.filter((card) =>
+    card.school.toLowerCase().includes(dropDownItem.toLowerCase())
+  );
+
+  // for various schools
+  const handleSch1 = () => {
+    setDropDownItem("UMaT");
+  };
+  const handleSch2 = () => {
+    setDropDownItem("UMaT, SRID");
+  };
+  const handleSch3 = () => {
+    setDropDownItem("UG, Legon");
+  };
+  const handleSch4 = () => {
+    setDropDownItem("UCC");
+  };
+  const handleSch5 = () => {
+    setDropDownItem("KNUST");
+  };
+
+  // when the search input field is clicked
+  const handleSearchClick = () => {
+    setToggleCategory(false);
+  };
 
   // PAGINATION
   const numCardsPerPage = 6;
   const indexOfLastCard = activePage * numCardsPerPage;
   const indexOfFirstCard = indexOfLastCard - numCardsPerPage;
-  const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
+  let currentCards;
+
+  // Switching display base on name or school
+  if (toggleCategory) {
+    currentCards = filteredCardsSch.slice(indexOfFirstCard, indexOfLastCard);
+  } else {
+    currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
+  }
 
   const totalPages = Math.ceil(filteredCards.length / numCardsPerPage);
 
@@ -51,6 +89,7 @@ const TutorStudents = ({ title, data }) => {
               className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-gray-900"
               placeholder=" "
               onChange={(e) => setSearchQuery(e.target.value)}
+              onClick={handleSearchClick}
             />
             <label className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-gray-500 peer-focus:text-gray-900 before:border-blue-gray-200 peer-focus:before:!border-gray-900 after:border-blue-gray-200 peer-focus:after:!border-gray-900">
               SEARCH {title}
@@ -90,45 +129,30 @@ const TutorStudents = ({ title, data }) => {
                   className="absolute right-0 z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow top-full w-44 dark:bg-gray-700 dark:divide-gray-600"
                 >
                   <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
-                    <li>
-                      <Link
-                        to="/"
-                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
+                    <li onClick={handleSch1}>
+                      <span className="block px-4 py-2 no-underline cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         UMaT
-                      </Link>
+                      </span>
                     </li>
-                    <li>
-                      <Link
-                        to="/"
-                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
+                    <li onClick={handleSch2}>
+                      <span className="block px-4 py-2 no-underline cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         UMaT, SRID
-                      </Link>
+                      </span>
                     </li>
-                    <li>
-                      <Link
-                        to="/"
-                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
+                    <li onClick={handleSch3}>
+                      <span className="block px-4 py-2 no-underline cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         UG, Legon
-                      </Link>
+                      </span>
                     </li>
-                    <li>
-                      <Link
-                        to="/"
-                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
+                    <li onClick={handleSch4}>
+                      <span className="block px-4 py-2 no-underline cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         UCC
-                      </Link>
+                      </span>
                     </li>
-                    <li>
-                      <Link
-                        to="/"
-                        className="block px-4 py-2 no-underline hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
+                    <li onClick={handleSch5}>
+                      <span className="block px-4 py-2 no-underline cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                         KNUST
-                      </Link>
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -171,18 +195,20 @@ const TutorStudents = ({ title, data }) => {
             {/* ... (card JSX structure) */}
             <div className="flex flex-col items-center pt-4 pb-10">
               {Gallary.map((image) =>
-                  image.name === card.profilePhotoLink ? (
-                    <img
+                image.name === card.profilePhotoLink ? (
+                  <img
                     className="w-20 h-20 mb-3 rounded-full shadow-lg"
-                      src={card.profilePhotoLink === image.name ? image.link : null}
-                      alt={image.name}
-                      key={card._id}
-                    />
-                  ) : null
-                )}
+                    src={
+                      card.profilePhotoLink === image.name ? image.link : null
+                    }
+                    alt={image.name}
+                    key={card._id}
+                  />
+                ) : null
+              )}
               <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
                 <Link
-                  to={`/manage${title}/${card._id}`}
+                  to={`/manage${title.toLowerCase()}/${card._id}`}
                   className="text-black no-underline"
                 >
                   {card.fullName}
@@ -203,7 +229,7 @@ const TutorStudents = ({ title, data }) => {
                   Suspend
                 </a>
                 <Link
-                  to={`/manage${title}/${card._id}`}
+                  to={`/manage${title.toLowerCase()}/${card._id}`}
                   className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white no-underline bg-red-700 border-gray-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3"
                 >
                   Detail

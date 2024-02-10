@@ -7,7 +7,7 @@ const MTDetail = () => {
   const { tutors } = useTutorsContext();
   return (
     <>
-      <TSDetail Data={tutors}  />
+      <TSDetail Data={tutors} title="TUTORS"  />
     </>
   );
 };
