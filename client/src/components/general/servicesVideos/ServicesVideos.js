@@ -145,6 +145,7 @@ const ServicesVideos = ({ title, data }) => {
                       className="w-full mb-3 h-60"
                       src={card.imageUrl === image.name ? image.link : null}
                       alt={image.name}
+                      key={index}
                     />
                   ) : null
                 )}

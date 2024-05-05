@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { TutorStudents } from "../../components";
-// import StudentsData from "./StudentsDB";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useStudentContext } from "../../hooks/useStudentContext";
+import { useLogout } from "../../hooks/useLogout";
 
 const ManageStudents = () => {
   const { students, dispatch } = useStudentContext();
   const { user } = useAuthContext();
+  const { logout } = useLogout();
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -14,7 +15,10 @@ const ManageStudents = () => {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       const json = await response.json();
-      
+
+      if (json["error"] === "Request is not authorized") {
+        logout();
+      }
       if (response.ok) {
         dispatch({ type: "SET_STUDENTS", payload: json });
       }
@@ -23,7 +27,9 @@ const ManageStudents = () => {
     if (user) {
       fetchStudents();
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, logout]);
+
+  // console.log(students["students"]);
 
   return (
     <>

@@ -141,7 +141,7 @@ const AdminSettings = () => {
               </thead>
               <div className="p-1"></div>
               <tbody className="bg-[#ebebeb]">
-                {admins.map((data, key) => (
+                {admins.map((data) => (
                   <>
                     {data.username === "Admin" ? (
                       <tr className="font-bold md:text-xl">

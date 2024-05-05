@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoute');
 const tutorRoutes = require('./routes/tutorRoute');
 const studentRoutes = require('./routes/studentRoute');
+const managePostRoutes = require('./routes/managePostRoute');
 
 // Creating Express app
 const app = express();
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 app.use('/api/user', userRoutes);
 app.use('/api/tutors', tutorRoutes);
 app.use('/api/students', studentRoutes);
+app.use('/api/managePost', managePostRoutes);
 
 // Connection to database
 mongoose.connect(process.env.MONGO_URI)
