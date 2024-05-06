@@ -3,10 +3,12 @@ import React, { useEffect } from "react";
 import {TutorStudents} from "../../components"
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useTutorsContext } from "../../hooks/useTutorContext";
+import { useLogout } from "../../hooks/useLogout";
 
 const ManageTutors = () => {
   const { tutors, dispatch } = useTutorsContext();
   const { user } = useAuthContext();
+  const { logout } = useLogout();
 
   useEffect(() => {
     const fetchTutors = async () => {
@@ -15,6 +17,9 @@ const ManageTutors = () => {
       });
       const json = await response.json();
       
+      if (json["error"] === "Request is not authorized") {
+        logout();
+      }
       if (response.ok) {
         dispatch({ type: "SET_TUTORS", payload: json });
       }
@@ -23,7 +28,7 @@ const ManageTutors = () => {
     if (user) {
       fetchTutors();
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, logout]);
 
   return (
     <>

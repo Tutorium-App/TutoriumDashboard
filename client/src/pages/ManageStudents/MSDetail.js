@@ -7,7 +7,7 @@ const MSDetail = () => {
   const { students } = useStudentContext();
   return (
     <>
-        <TSDetail Data={students} />
+        <TSDetail Data={students} title="STUDENTS" />
     </>
   )
 }

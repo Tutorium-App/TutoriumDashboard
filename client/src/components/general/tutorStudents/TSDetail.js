@@ -4,7 +4,7 @@ import { Navbar } from "../../../components";
 import { Gallary } from "../../../assets/Gallary";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 
-const TSDetail = ({ Data }) => {
+const TSDetail = ({ Data, title }) => {
   var { id } = useParams();
   const DB = Data.find((TDB) => TDB._id === id);
   const { user } = useAuthContext();
@@ -30,7 +30,7 @@ const TSDetail = ({ Data }) => {
       return;
     }
 
-    const response = await fetch("/api/tutors/" + id, {
+    const response = await fetch(`/api/${title.toLowerCase()}/` + id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
