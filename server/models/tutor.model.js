@@ -22,6 +22,10 @@ const tutorSchema = new Schema({
         type: String,
         required: true
     },
+    dateCreated: {
+      type: String,
+      required: true
+    },
     school: {
         type: String,
         required: true
@@ -38,6 +42,14 @@ const tutorSchema = new Schema({
         type: String,
         required: true
     },
+    numberOfVideos: {
+      type: Number,
+      required: true
+    },
+    numberOfServices: {
+      type: Number,
+      required: true
+    },
     balance: {
         type: Number,
         required: true
@@ -45,6 +57,14 @@ const tutorSchema = new Schema({
     rating: {
         type: Number,
         required: true
+    },
+    numberOfRatings: {
+      type: Number,
+      required: true
+    },
+    sales: {
+      type: Number,
+      required: true
     },
     verified: {
         type: String,

@@ -22,6 +22,10 @@ const studentSchema = new Schema({
         type: String,
         required: true
     },
+    dateCreated: {
+      type: String,
+      required: true
+    },
     school: {
         type: String,
         required: true
@@ -34,21 +38,13 @@ const studentSchema = new Schema({
         type: String,
         required: true
     },
-    about: {
-        type: String,
-        required: true
+    numberOfVideos: {
+      type: Number,
+      required: true
     },
-    balance: {
-        type: Number,
-        required: true
-    },
-    rating: {
-        type: Number,
-        required: true
-    },
-    verified: {
-        type: String,
-        required: true
+    numberOfServices: {
+      type: Number,
+      required: true
     },
     profilePhotoLink: {
         type: String,
@@ -56,7 +52,7 @@ const studentSchema = new Schema({
     }
 }, {timestamps: true});
 
-studentSchema.statics.addStudent = async function (studentID, fullName, email, phone, school, program, year, about, balance, rating, verified, profilePhotoLink) {
+studentSchema.statics.addStudent = async function (studentID, fullName, email, phone, dateCreated, school, program, year, numberOfServices, numberOfVideos, profilePhotoLink) {
   
     let emptyFields = []
   
@@ -68,6 +64,9 @@ studentSchema.statics.addStudent = async function (studentID, fullName, email, p
     }
     if(!email) {
       emptyFields.push('email')
+    }
+    if(!dateCreated) {
+      emptyFields.push('dateCreated')
     }
     if(!phone) {
       emptyFields.push('phone')
@@ -81,17 +80,11 @@ studentSchema.statics.addStudent = async function (studentID, fullName, email, p
     if(!year) {
       emptyFields.push('year')
     }
-    if(!about) {
-      emptyFields.push('about')
+    if(!numberOfServices) {
+      emptyFields.push('numberOfServices')
     }
-    if(!balance) {
-      emptyFields.push('balance')
-    }
-    if(!rating) {
-      emptyFields.push('rating')
-    }
-    if(!verified) {
-      emptyFields.push('verified')
+    if(!numberOfVideos) {
+      emptyFields.push('numberOfVideos')
     }
     if(!profilePhotoLink) {
       emptyFields.push('profilePhotoLink')
@@ -106,7 +99,7 @@ studentSchema.statics.addStudent = async function (studentID, fullName, email, p
   
     // add doc to db
     try {
-      const tutor = await this.create({studentID, fullName, email, phone, school, program, year, about, balance, rating, verified, profilePhotoLink})
+      const tutor = await this.create({studentID, fullName, email, phone, dateCreated, school, program, year, numberOfServices, numberOfVideos, profilePhotoLink})
       return(tutor)
     } catch (error) {
       throw Error({error: error.message})
