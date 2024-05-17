@@ -1,11 +1,11 @@
 import React from 'react'
-import { SVDetail } from '../../components'
+import { ManageServicesTemplateDetail } from '../../components'
 import ServicesData from './ServicesDB'
 
 const ServicesDetail = () => {
   return (
     <>
-        <SVDetail Data={ServicesData} />
+        <ManageServicesTemplateDetail Data={ServicesData} />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 // import TutorsData from "./TutorsDB";
-import {TutorStudents} from "../../components"
+import {ManageTutorTemplate} from "../../components"
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useTutorsContext } from "../../hooks/useTutorContext";
 import { useLogout } from "../../hooks/useLogout";
@@ -32,7 +32,7 @@ const ManageTutors = () => {
 
   return (
     <>
-      <TutorStudents data={tutors} title="TUTORS" />
+      <ManageTutorTemplate data={tutors} title="TUTORS" />
     </>
   );
 };

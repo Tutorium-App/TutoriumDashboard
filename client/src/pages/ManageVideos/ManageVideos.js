@@ -1,11 +1,11 @@
 import React from "react";
-import { ServicesVideos } from "../../components";
+import { ManageVideosTemplate } from "../../components";
 import VideosDB from "./VideosDB";
 
 const ManageVideos = () => {
   return (
     <>
-      <ServicesVideos title="VIDEOS" data={VideosDB} />
+      <ManageVideosTemplate title="VIDEOS" data={VideosDB} />
     </>
   )
 };
