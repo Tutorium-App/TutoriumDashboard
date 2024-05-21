@@ -1,4 +1,4 @@
-const Tutor = require('../models/tutorModel')
+const Tutor = require('../models/tutor.model')
 const mongoose = require('mongoose')
 
 

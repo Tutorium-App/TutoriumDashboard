@@ -1,5 +1,5 @@
 import React from 'react'
-import { TSDetail } from '../../components'
+import { ManageStudentTemplateDetail } from '../../components'
 // import StudentsData from './StudentsDB'
 import { useStudentContext } from "../../hooks/useStudentContext";
 
@@ -7,7 +7,7 @@ const MSDetail = () => {
   const { students } = useStudentContext();
   return (
     <>
-        <TSDetail Data={students} title="STUDENTS" />
+        <ManageStudentTemplateDetail Data={students} title="STUDENTS" />
     </>
   )
 }

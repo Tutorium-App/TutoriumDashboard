@@ -3,11 +3,11 @@ import { useState } from "react";
 import React from "react";
 import { IconButton } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
-import { Navbar } from "../../../components";
+import { Navbar } from "..";
 import { Link } from "react-router-dom";
-import { Gallary } from "../../../assets/Gallary";
+import { Gallary } from "../../assets/Gallary";
 
-const TutorStudents = ({ title, data }) => {
+const ManageTutorTemplate = ({ title, data }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [dropDownItem, setDropDownItem] = useState("");       // state for the values of list items
   const [toggleCategory, setToggleCategory] = useState(false); // state for managing fullName and school
@@ -274,4 +274,4 @@ const TutorStudents = ({ title, data }) => {
   );
 };
 
-export default TutorStudents;
+export default ManageTutorTemplate;

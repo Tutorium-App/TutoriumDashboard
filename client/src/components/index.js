@@ -1,6 +1,10 @@
 export { default as ChartComponent } from './home/ChartComponent';
-export { default as Navbar } from './general/navbar/Navbar';
-export { default as TutorStudents } from './general/tutorStudents/TutorStudents'
-export { default as TSDetail } from './general/tutorStudents/TSDetail'
-export { default as ServicesVideos } from './general/servicesVideos/ServicesVideos'
-export { default as SVDetail } from './general/servicesVideos/SVDetail'
+export { default as Navbar } from './navbar/Navbar';
+export { default as ManageServicesTemplate } from './manageServices/ManageServicesTemplate'
+export { default as ManageServicesTemplateDetail } from './manageServices/ManageServicesTemplateDetail'
+export { default as ManageVideosTemplate } from './manageVideos/ManageVideosTemplate'
+export { default as ManageVideosTemplateDetail } from './manageVideos/ManageVideosTemplateDetail'
+export { default as ManageTutorTemplate } from './manageTutor/ManageTutorTemplate'
+export { default as ManageTutorTemplateDetail } from './manageTutor/ManageTutorTemplateDetail'
+export { default as ManageStudentTemplate } from './manageStudent/ManageStudentTemplate'
+export { default as ManageStudentTemplateDetail } from './manageStudent/ManageStudentTemplateDetail'

@@ -3,11 +3,11 @@ import { useState } from "react";
 import React from "react";
 import { IconButton } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
-import { Navbar } from "../../../components";
 import { Link } from "react-router-dom";
-import { Gallary } from "../../../assets/Gallary";
+import { Gallary } from "../../assets/Gallary";
+import { Navbar } from "..";
 
-const ServicesVideos = ({ title, data }) => {
+const ManageServicesTemplate = ({ title, data }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activePage, setActivePage] = useState(1); // Change from currentPage to activePage
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -204,4 +204,4 @@ const ServicesVideos = ({ title, data }) => {
   );
 };
 
-export default ServicesVideos;
+export default ManageServicesTemplate;

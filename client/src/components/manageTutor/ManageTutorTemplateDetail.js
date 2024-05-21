@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Navbar } from "../../../components";
-import { Gallary } from "../../../assets/Gallary";
-import { useAuthContext } from "../../../hooks/useAuthContext";
+import { Gallary } from "../../assets/Gallary";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { Navbar } from "..";
 
-const TSDetail = ({ Data, title }) => {
+const ManageTutorTemplateDetail = ({ Data, title }) => {
   var { id } = useParams();
   const DB = Data.find((TDB) => TDB._id === id);
   const { user } = useAuthContext();
@@ -186,4 +186,4 @@ const TSDetail = ({ Data, title }) => {
   );
 };
 
-export default TSDetail;
+export default ManageTutorTemplateDetail;

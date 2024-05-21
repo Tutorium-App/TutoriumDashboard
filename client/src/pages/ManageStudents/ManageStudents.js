@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { TutorStudents } from "../../components";
+import { ManageStudentTemplate } from "../../components";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useStudentContext } from "../../hooks/useStudentContext";
 import { useLogout } from "../../hooks/useLogout";
@@ -33,7 +33,7 @@ const ManageStudents = () => {
 
   return (
     <>
-      <TutorStudents data={students} title="STUDENTS" />
+      <ManageStudentTemplate data={students} title="STUDENTS" />
     </>
   );
 };

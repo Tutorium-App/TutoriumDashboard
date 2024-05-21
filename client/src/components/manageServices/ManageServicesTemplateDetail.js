@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Navbar } from "../../../components";
-import { Gallary } from "../../../assets/Gallary";
+import { Gallary } from "../../assets/Gallary";
+import { Navbar } from "../";
 
-const SVDetail = ({Data}) => {
+const ManageServicesTemplateDetail = ({Data}) => {
 
     var { id } = useParams();
     const newId = parseInt(id);
@@ -95,4 +95,4 @@ const SVDetail = ({Data}) => {
       );
 }
 
-export default SVDetail
+export default ManageServicesTemplateDetail
