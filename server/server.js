@@ -2,6 +2,8 @@ require('dotenv').config()
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const helmet = require('helmet');
 const userRoutes = require('./routes/userRoute');
 const tutorRoutes = require('./routes/tutorRoute');
 const studentRoutes = require('./routes/studentRoute');
@@ -10,7 +12,18 @@ const studentRoutes = require('./routes/studentRoute');
 // Creating Express app
 const app = express();
 
+// Set security headers
+app.use(helmet());
+
+// CORS options
+const corsOptions = {
+  origin: 'https://tutoriumdb.netlify.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+};
+
 // Middlewares
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use((req, res, next) => {
